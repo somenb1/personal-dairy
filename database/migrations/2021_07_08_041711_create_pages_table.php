@@ -15,8 +15,8 @@ class CreatePagesTable extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('dairy_id')->unsigned();
-            $table->foreign('dairy_id')->references('id')->on('dairies');
+            $table->integer('diary_id')->unsigned();
+            $table->foreign('diary_id')->references('id')->on('diaries');
             $table->text('content');
             $table->timestamps();
         });

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDairiesTable extends Migration
+class CreateDiariesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDairiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('dairies', function (Blueprint $table) {
+        Schema::create('diaries', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
@@ -29,6 +29,6 @@ class CreateDairiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dairies');
+        Schema::dropIfExists('diaries');
     }
 }
