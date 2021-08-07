@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DiaryController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +25,13 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::post('/diaries', [DiaryController::class, 'create']);
+    Route::get('/diaries', [DiaryController::class, 'show']);
+    Route::put('/diaries/{id}', [DiaryController::class, 'update']);
+
+    Route::post('/pages', [PageController::class, 'create']);
+    Route::get('/pages', [PageController::class, 'show']);
+    Route::put('/pages/{id}', [PageController::class, 'update']);
+
     Route::post('/logout', [AuthController::class, 'logout']);
 });
